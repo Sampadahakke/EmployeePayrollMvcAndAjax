@@ -1,0 +1,100 @@
+﻿@model RepositoryLayer.Entity.Employee
+
+<!-- Button trigger modal -->
+<button type="button" id="btnmodel" style="display:none" class="btn btn-primary" data-toggle="modal" data-target="#employeeModal">
+  
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add/Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="row">
+          @* <div class="col-lg-3">
+            <label>
+                Code
+            </label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                <input id="txtEmployeeId" disabled="disabled" class="form-control">
+                </div>
+           </div>*@
+           <div class="col-lg-3">
+            <label>EmployeeName </label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                <input id="txtEmployeeName" class="form-control">
+                </div>
+           </div>
+           <div class="col-lg-3">
+            <label>ProfileImage</label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                 @Html.RadioButtonFor(model => model.ProfileImage, "~/assets/p1.png")
+                    <img class="image1" src="~/assets/p1.png" />
+                    @Html.RadioButtonFor(model => model.ProfileImage, "~/assets/p2.png")
+                    <img class="image2" src="~/assets/p2.png" />
+                    @Html.RadioButtonFor(model => model.ProfileImage, "~/assets/p3.png")
+                    <img class="image3" src="~/assets/p3.png" />
+                    @Html.RadioButtonFor(model => model.ProfileImage, "~/assets/p4.png")
+                    <img class="image4" src="~/assets/p4.png" />
+                </div>
+           </div>
+          
+            <div class="col-lg-9">
+                <div class="form-group">
+                  <label asp-for="Gender" ></label>
+                <input  type="radio"  name="gender" value="male">
+                    <label  for="male">Male</label>
+                    <input type="radio"  name="gender" value="female">
+                    <label  for="female">Female</label>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+           </div>
+           <div class="col-lg-3">
+            <label>Department</label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                 <select class="drop"  asp-for="Department">
+                     <option value="0">HR</option>
+                     <option value="1">Finance</option>
+                     <option value="2">Marketing</option>
+                 </select>
+                </div>
+           </div>
+           <div class="col-lg-3">
+            <label>Salary</label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                <input id="txtSalary" class="form-control">
+                </div>
+           </div>
+           <div class="col-lg-3">
+            <label>StartDate</label>
+           </div>
+            <div class="col-lg-9">
+                <div class="form-group">
+                <input id="txtStartDate" class="form-control">
+                </div>
+           </div>
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button href="#" onclick="Create(); return false;" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>

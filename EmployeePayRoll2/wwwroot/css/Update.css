@@ -1,0 +1,103 @@
+﻿body {
+}
+
+.form {
+    justify-content: center;
+    background-color: white;
+    margin-top: 0px;
+    width: 400%;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #f5f5f5;
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px #00000029;
+    padding-left: 50px;
+    padding-right: 100px;
+    padding-top: 20px;
+    margin-left: 80px;
+}
+
+.form-group {
+    display: -webkit-inline-box;
+    display: flex;
+}
+
+.department {
+    width: 100%;
+    margin-left: 50px;
+    height: 35px;
+}
+
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 70%;
+    padding-right: 50px;
+}
+
+.control {
+    margin-right: 40px;
+    margin-left: 50px;
+}
+/*.red {
+    width: 400px;
+    margin-left: 50px;
+    height: 35px;
+}*/
+.Name {
+    margin-left: 100px;
+    height: 40px;
+    width: 300px;
+}
+
+.Name1 {
+    margin-left: 75px;
+    height: 40px;
+    width: 300px;
+}
+
+.Name2 {
+    margin-left: 130px;
+    height: 40px;
+    width: 300px;
+}
+
+.Name3 {
+    margin-left: 100px;
+    height: 40px;
+    width: 300px;
+}
+
+.Name4 {
+    margin-left: 120px;
+    height: 40px;
+    width: 300px;
+}
+
+.Name5 {
+    margin-left: 140px;
+    height: 40px;
+    width: 300px;
+}
+
+.row {
+    display: flex;
+    width: 152%;
+    height: 100%;
+    flex-direction: row;
+    background-color: #f7f7f7;
+    justify-content: center;
+    padding-right: 550px
+}
+
+.Submit-button {
+    margin-left: 490px;
+    margin-bottom: 20px;
+}
+
+.bu {
+    width: 100px;
+    background-color: #1b6ec2;
+}

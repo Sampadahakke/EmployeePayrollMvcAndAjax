@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\sampada\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sampada\\.nuget\\packages"
+    ]
+  }
+}

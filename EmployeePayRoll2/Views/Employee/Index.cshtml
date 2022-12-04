@@ -1,0 +1,127 @@
+﻿<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  
+
+<h1 class="text-center"><i class="fas fa-comment-dollar text-success"></i>Employee Payroll</h1>
+<div class="column">
+    <div class="a">
+        <a href="#" onclick="CreateNew(); return false;" class="btn btn-primary">Create New</a>
+        @Html.Partial("~/Views/Shared/Master/_Employee.cshtml")
+    </div>
+     <div class="b">
+         <br/>
+         <table id="tblEmp" class="table">
+             <thead>
+              <tr>
+                  <th>EmployeeId</th>
+                  <th>EmployeeName</th>
+                  <th>ProfileImage</th>
+                  <th>Gender</th>
+                  <th>Department</th>
+                  <th>StartDate</th>
+                  <th>Salary</th>
+              </tr>
+             </thead>
+             <tbody>
+
+             </tbody>
+         </table>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+    var js=jQuery.noConflict(true);
+js(document).ready(function(){
+    LoadEmployee();
+});
+
+function LoadEmployee(){
+    var empData=[];
+     $.ajax({
+        type:'GET',
+        dataType: "json",
+        url:'Employee/GetAllEmployees',
+        async:false,
+        data:{},
+        success(data){
+        if(data!=null){
+      
+            $.each(data,function(key,value){
+          empData.push([value.EmployeeId,value.EmployeeName, value.ProfileImage, value.Gender, value.Department, value.StartDate, value.Salary,'']);
+            });
+        }
+        else{
+            alert('Failed');
+        }
+        },
+        error(){
+
+        }
+    });
+   js('#tblEmp').dataTable({
+       destroy:true,
+       data:empData
+   });
+}
+
+function CreateNew(){
+    ClearAll();
+$('#btnmodel').trigger('click');
+}
+function ClearAll(){
+$('#txtEmployeeId').val('');
+$('#txtEmployeeName').val('');
+$('#txtProfileImage').val('');
+$('#txtGender').val('');
+$('#txtDepartment').val('');
+$('#txtSalary').val('');
+$('#txtStartDate').val('');
+
+
+}
+function Create(){
+    var isproceed=true;
+
+var EmployeeName=$('#txtEmployeeName').val();
+var ProfileImage=$('#txtProfileImage').val();
+var Gender=$('#txtGender').val();
+var Department=$('#txtDepartment').val();
+var Salary=$('#txtSalary').val();
+var StartDate=$('#txtStartDate').val();
+if(EmployeeName==''){
+    var isproceed=false;
+    $('#EmployeeName').css('border-color','red');
+}
+else{
+     $('#EmployeeName').css('border-color','#ccc')
+}
+if(isproceed){
+    var empData= new Object();
+    empData.EmployeeName=EmployeeName;
+    empData.ProfileImage=ProfileImage;
+    empData.Gender=Gender;
+    empData.Department=Department;
+    empData.StartDate=StartDate;
+    empData.Salary=Salary;
+
+    $.ajax({
+        type:'post',
+        url:'Employee/AddEmployee',
+        data:empData,
+        success(data){
+        if(data!=null){
+            alert('Data Saved Successfully')
+        }
+        else{
+            alert('Failed');
+        }
+        },
+        error(){
+
+        }
+    })
+}
+}
+
+</script>
